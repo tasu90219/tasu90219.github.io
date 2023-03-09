@@ -1,0 +1,31 @@
+<div class="main users-edit">
+    <div class="container">
+    <div class="form-heading">ユーザー情報の編集</div>
+    <%= form_tag("/users/#{@user.id}/update") do%>
+    <div class="form users-form">
+        <div class="form-body">
+        <% if @user.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+        <ul>
+            <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+        <% end %>
+        <div class="user-edit">
+        <p>ユーザー名</p>
+        <input name="name" value="<%=@user.name %>">
+        <p>メールアドレス</p>
+        <input name="email" value="<%=@user.email %>">
+        <p>性別</p>
+        <input name="gender" value="<%=@user.gender %>">
+        <p>年齢</p>
+        <input name="age" value="<%=@user.age %>">
+        <input type="submit" value="保存">
+        </div>
+        </div>
+    <%end%>
+        </div>
+    </div>
+</div>

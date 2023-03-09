@@ -1,0 +1,37 @@
+<div class="search">
+<h1 class="form-heading">検索</h1>
+<%= form_with url: search_posts_path, method: :get, local: true do |f| %>
+<div class="search-item">
+    <p>女優名</p>
+    <%= f.text_field :actorname  %>
+    <p>作品名</p>
+    <%= f.text_field :title  %>
+    <p>評価</p>
+    <%= f.text_field :evaluation  %>
+    <p>スコア</p>
+    <%= f.text_field :score  %>
+    <p>感想</p>
+    <%= f.text_field :impression  %>
+    <%= f.submit "検索" %>
+    </div>
+<% end %>
+
+<table>
+    <thead>
+    <tr>
+        <th>検索結果</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @posts.each do |post| %>
+    <tr class="search-result">
+        <td><%= post.actorname %></td>
+        <td><%= post.title %></td>
+        <td><%= post.evaluation%></td>
+        <td><%= post.score %></td>
+        <td><%= post.impression %></td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
+</div>

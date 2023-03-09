@@ -1,0 +1,49 @@
+<div class="main posts-new">
+    <div class="container">
+    <h1 class="form-heading">投稿する</h1>
+    <%= form_tag("/posts/create") do %>
+    <div class="form">
+        <div class="form-body">
+    <% if @post.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div class="form-items">
+        <p>女優名</p>
+        <input name="actorname" type="text" value="<%= @post.actorname %>">
+
+        <p>タイトル名</p>
+        <input name="title" type="text" value="<%= @post.title %>">
+
+        <p>評価</p>
+        <input class="r" type="radio" value="完璧" name="evaluation" id="r1">
+        <label style= "display: inline-block;">完璧</label>
+        <input class="r" type="radio" value="顔がタイプ" name="evaluation" id="r2">
+        <label style= "display: inline-block;">顔がタイプ</label>
+        <input class="r" type="radio" value="スタイルがタイプ" name="evaluation" id="r3">
+        <label style= "display: inline-block;">スタイルがタイプ</label>
+        <input class="r" type="radio" value="声がタイプ" name="evaluation" id="r4">
+        <label style= "display: inline-block;">声がタイプ</label>
+        <input class="r" type="radio" value="その他" name="evaluation" id="r5">
+        <label style= "display: inline-block;">その他</label>
+
+        <p>スコア（0 ~ 9）</p>
+        <input name="score" type="text" value="<%= @post.score %>">
+        <p>感想・内容（5文字以上）</p>
+        <textarea name="impression"><%= @post.impression %></textarea>
+        <div class="btn">
+        <input class="btn1" type="submit" value="投稿">
+        </div>
+
+        </div>
+        
+        </div>
+    </div>
+    <% end %>
+    </div>
+</div>

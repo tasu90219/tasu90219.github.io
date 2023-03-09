@@ -1,0 +1,26 @@
+<div class="main posts-show">
+    <div class="container">
+    <div class="posts-show-item">
+
+    <div class="post_user_name">
+        <%=link_to(@user.name, "/users/#{@user.id}")%>
+    </div>
+
+        <p>名前: <%= @post.actorname %></p>
+        <p>タイトル: <%= @post.title %></p>
+        <p>評価: <%= @post.evaluation %></p>
+        <p>スコア: <%= @post.score %></p>
+        <p>感想: <%= @post.impression %></p>
+
+        <div class="post-time">
+        <%= @post.created_at %>
+        </div>
+    </div>
+    <% if @post.user_id == @current_user.id %>
+    <div class="post-menus">
+        <%= link_to "編集", "/posts/#{@post.id}/edit" %>
+        <%= link_to'削除', "/posts/#{@post.id}", method: :delete,  date: { comfirm: "本当に削除しますか？"}  %>
+    </div>
+    <%end%>
+    </div>
+</div>

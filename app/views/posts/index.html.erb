@@ -1,0 +1,16 @@
+
+
+<div class="main posts-index">
+    <div class="container">
+    <h1 class="form-heading">投稿一覧</h1>
+
+    <% @posts.each do |post| %>
+        <div class="posts-index-item">
+
+        <%= link_to(post.actorname, "/posts/#{post.id}") %>
+        </div>
+
+
+    <% end %>
+    </div>
+</div>

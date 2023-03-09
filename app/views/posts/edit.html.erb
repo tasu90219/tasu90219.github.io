@@ -1,0 +1,37 @@
+<div class="main posts-new">
+    <div class="container">
+    <h1 class="form-heading">編集</h1>
+
+    <%= form_tag("/posts/#{@post.id}/update") do %>
+    <div class="form">
+        <div class="form-body">
+    <% if @post.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+        <div class="edit_from">
+        <p>名前</p>
+        <input name="actorname" type="text" value="<%= @post.actorname %>">
+        <p>タイトル</p>
+        <input name="title" type="text" value="<%= @post.title %>">
+        <p>評価</p>
+        <input name="evaluation" type="text" value="<%= @post.evaluation %>">
+        <p>スコア</p>
+        <input name="score" type="text" value="<%= @post.score %>">
+ 
+        <p>感想・内容</p>
+        <textarea name="impression"><%= @post.impression %></textarea>
+        
+        <input type="submit" value="保存">
+        </div>
+        </div>
+    </div>
+    <% end %>
+
+    </div>
+</div>
